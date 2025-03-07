@@ -19,7 +19,7 @@ export default function Navbar() {
       >
         <div className="flex items-center   justify-between">
           <div>
-            <Image width={300} height={300} src="/images/logo-dark.png" className="w-12 cursor-pointer" alt="logo" />
+            <Image width={400} height={400} src="/images/logo-dark.png" className="w-12 cursor-pointer" alt="logo" />
           </div>
 
           <div className="hidden md:flex gap-8 text-[1rem] font-thin  tracking-wide">

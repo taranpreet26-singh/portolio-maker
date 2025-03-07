@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function About() {
     const company = ['/images/partner1.png', '/images/clear-logo.png', '/images/partner2.png', '/images/partner3.png', '/images/clear-logo.png', '/images/partner4.png', '/images/partner1.png', '/images/partner2.png', '/images/partner3.png', '/images/partner4.png'];
-    const companyGroup = [...company, ...company, ...company];
+    const companyGroup = [...company, ...company, ...company, ...company, ...company];
 
     return (
         <motion.div className="h-[22rem] pt-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
