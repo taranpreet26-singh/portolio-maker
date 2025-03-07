@@ -5,6 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import menu_data from "@/utils/menu_data";
 import Image from "next/image";
+import { Oswald } from '@next/font/google';
+
+const oswald = Oswald({  subsets: ['latin'] });
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +16,7 @@ export default function Navbar() {
   return (
     <>
       <motion.nav 
-        className="bg-[#f4f3ed]/90 drop-shadow-lg text-black py-4 px-6 md:px-16  fixed top-0 w-full shadow-sm z-50"
+        className={`bg-[#f4f3ed]/90 drop-shadow-lg text-black py-4 px-6 md:px-16   fixed top-0 w-full shadow-sm z-50 ${oswald.className }`}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
