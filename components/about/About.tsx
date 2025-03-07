@@ -17,7 +17,7 @@ export default function About() {
 
     return (
         <motion.div 
-            className="h-[22rem] bg-[#0a0a0a]  pt-10"
+            className="h-full  pt-10"
             initial="hidden"
             animate="visible"
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 1 } } }}

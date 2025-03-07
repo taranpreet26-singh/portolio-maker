@@ -791,6 +791,10 @@
     background-color: color-mix(in oklab, var(--color-black) 90%, transparent);
   }
 
+  .bg-red-200 {
+    background-color: var(--color-red-200);
+  }
+
   .bg-gradient-to-l {
     --tw-gradient-position: to left in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
