@@ -1,5 +1,6 @@
 "use client"
 import { easeInOut, motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
     const company = ['./images/partner1.png','./images/clear-logo.png', './images/partner2.png', './images/partner3.png', './images/partner4.png', './images/partner1.png', './images/partner2.png', './images/partner3.png', './images/partner4.png'];
@@ -29,7 +30,7 @@ export default function About() {
                                     whileHover={{ scale: 1.2, rotate: 5 }}
                                     transition={{ duration: 0.3, ease: easeInOut }}
                                     key={index}>
-                                    <img src={element} alt="company-logo" className="w-24 h-auto" />
+                                    <Image width={300} height={300} src={element} alt="company-logo" className="w-24 h-auto" />
                                 </motion.div>
                             ))}
                         </motion.div>
