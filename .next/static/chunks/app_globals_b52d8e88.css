@@ -482,12 +482,36 @@
     height: calc(var(--spacing) * 92);
   }
 
+  .h-\[3\] {
+    height: 3px;
+  }
+
   .h-\[22rem\] {
     height: 22rem;
   }
 
+  .h-\[32\] {
+    height: 32px;
+  }
+
+  .h-\[32r\] {
+    height: 32r;
+  }
+
+  .h-\[32re\] {
+    height: 32re;
+  }
+
+  .h-\[32rem\] {
+    height: 32rem;
+  }
+
   .h-auto {
     height: auto;
+  }
+
+  .h-fit {
+    height: fit-content;
   }
 
   .h-full {
@@ -740,6 +764,10 @@
     object-fit: cover;
   }
 
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+
   .p-6 {
     padding: calc(var(--spacing) * 6);
   }
@@ -782,6 +810,14 @@
 
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
+  }
+
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
+
+  .pb-14 {
+    padding-bottom: calc(var(--spacing) * 14);
   }
 
   .text-center {
