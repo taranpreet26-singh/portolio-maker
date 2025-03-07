@@ -32,39 +32,48 @@ function About() {
     const companyGroup = [
         ...company,
         ...company,
+        ...company,
+        ...company,
         ...company
     ];
+    const fadeInUp = {
+        hidden: {
+            opacity: 0,
+            y: 50
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1,
+                ease: "easeOut"
+            }
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-        className: "h-[22rem] pt-10",
-        initial: {
-            opacity: 0
-        },
-        animate: {
-            opacity: 1
-        },
-        transition: {
-            duration: 1
+        className: "h-[22rem] bg-[#0a0a0a]  pt-10",
+        initial: "hidden",
+        animate: "visible",
+        variants: {
+            hidden: {
+                opacity: 0
+            },
+            visible: {
+                opacity: 1,
+                transition: {
+                    duration: 1
+                }
+            }
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                     className: "bg-[#f4f3ed] text-black flex items-center justify-center font-thin font-serif text-xl md:text-2xl",
-                    initial: {
-                        y: -50,
-                        opacity: 0
-                    },
-                    animate: {
-                        y: 0,
-                        opacity: 1
-                    },
-                    transition: {
-                        duration: 0.8,
-                        ease: "easeOut"
-                    },
+                    variants: fadeInUp,
                     children: "COMPANY I WANT TO WORK WITH"
                 }, void 0, false, {
                     fileName: "[project]/components/about/About.tsx",
-                    lineNumber: 12,
+                    lineNumber: 26,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -76,33 +85,34 @@ function About() {
                                 className: "absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black via-transparent"
                             }, void 0, false, {
                                 fileName: "[project]/components/about/About.tsx",
-                                lineNumber: 21,
+                                lineNumber: 35,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black via-transparent"
                             }, void 0, false, {
                                 fileName: "[project]/components/about/About.tsx",
-                                lineNumber: 22,
+                                lineNumber: 36,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                 initial: {
-                                    x: "0"
+                                    x: "0%"
                                 },
                                 animate: {
                                     x: "-50%"
                                 },
                                 transition: {
                                     repeat: Infinity,
-                                    duration: 18,
+                                    duration: 20,
                                     ease: "linear"
                                 },
                                 className: "flex justify-center items-center h-22 w-max gap-10",
                                 children: companyGroup.map((element, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                         whileHover: {
                                             scale: 1.2,
-                                            rotate: 5
+                                            rotate: 5,
+                                            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.3)"
                                         },
                                         transition: {
                                             duration: 0.3,
@@ -116,97 +126,72 @@ function About() {
                                             className: "w-24 h-auto"
                                         }, void 0, false, {
                                             fileName: "[project]/components/about/About.tsx",
-                                            lineNumber: 33,
+                                            lineNumber: 49,
                                             columnNumber: 37
                                         }, this)
                                     }, index, false, {
                                         fileName: "[project]/components/about/About.tsx",
-                                        lineNumber: 29,
+                                        lineNumber: 44,
                                         columnNumber: 33
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/about/About.tsx",
-                                lineNumber: 23,
+                                lineNumber: 37,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/about/About.tsx",
-                        lineNumber: 20,
+                        lineNumber: 34,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/about/About.tsx",
-                    lineNumber: 19,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                     className: "h-auto mt-10 text-white",
-                    initial: {
-                        opacity: 0,
-                        y: 50
-                    },
-                    animate: {
-                        opacity: 1,
-                        y: 0
-                    },
-                    transition: {
-                        duration: 1,
-                        ease: "easeOut"
-                    },
+                    variants: fadeInUp,
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "w-full px-4 sm:px-14 mx-auto flex flex-col items-center md:items-start md:flex-row",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                 className: "w-[30%]",
-                                initial: {
-                                    x: -50,
-                                    opacity: 0
-                                },
-                                animate: {
-                                    x: 0,
-                                    opacity: 1
-                                },
-                                transition: {
-                                    duration: 0.8,
-                                    ease: "easeOut"
-                                },
+                                initial: "hidden",
+                                animate: "visible",
+                                variants: fadeInUp,
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "text-xl sm:text-3xl md:text-5xl font-bold mb-6",
                                     children: "About Me"
                                 }, void 0, false, {
                                     fileName: "[project]/components/about/About.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 64,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/about/About.tsx",
-                                lineNumber: 45,
+                                lineNumber: 58,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                 className: "w-[70%] text-justify",
-                                initial: {
-                                    x: 50,
-                                    opacity: 0
-                                },
-                                animate: {
-                                    x: 0,
-                                    opacity: 1
-                                },
-                                transition: {
-                                    duration: 0.8,
-                                    ease: "easeOut"
-                                },
+                                initial: "hidden",
+                                animate: "visible",
+                                variants: fadeInUp,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-lg md:text-xl leading-relaxed",
-                                        children: `Hello! I'm Taranpreet Singh, a Full Stack Developer with a B.Tech in IT, driven by a relentless thirst for learning and a passion for crafting robust, user-centric applications...
-                                My technical expertise spans React, TypeScript, Node.js, Express, and PostgreSQL...
-                                 I am always eager to connect with industry leaders, developers, and creatives who share a commitment to innovation...`
+                                        children: `Hello! I'm Taranpreet Singh, a Full Stack Developer, and I have a B.Tech in IT, with a relentless drive for continuous learning and a passion for transforming ideas into robust, user-focused applications. Skilled in both front-end and back-end development, I enjoy diving into the full project lifecycle, from design to deployment, and optimizing user experience at every step.
+
+My technical toolkit includes proficiency in React, TypeScript, Node.js, Express, and PostgreSQL, with experience in the MERN stack. Currently, I’m delving into advanced concepts like Prisma, Zod, and cloud deployment with Neon DB and Render to elevate my development capabilities and stay ahead in this fast-evolving field.
+
+I am eager to connect with industry leaders, developers, and creatives who share a commitment to innovation. Open to collaborative projects, mentorship opportunities, and professional discussions, I aim to contribute to impactful projects and grow within the tech community.
+
+Let’s connect and build something amazing!`
                                     }, void 0, false, {
                                         fileName: "[project]/components/about/About.tsx",
-                                        lineNumber: 57,
+                                        lineNumber: 73,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -244,7 +229,7 @@ function About() {
                                                         children: stat.value
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/about/About.tsx",
-                                                        lineNumber: 75,
+                                                        lineNumber: 96,
                                                         columnNumber: 41
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -252,46 +237,46 @@ function About() {
                                                         children: stat.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/about/About.tsx",
-                                                        lineNumber: 76,
+                                                        lineNumber: 97,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/components/about/About.tsx",
-                                                lineNumber: 69,
+                                                lineNumber: 89,
                                                 columnNumber: 37
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/components/about/About.tsx",
-                                        lineNumber: 63,
+                                        lineNumber: 83,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/about/About.tsx",
-                                lineNumber: 52,
+                                lineNumber: 67,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/about/About.tsx",
-                        lineNumber: 44,
+                        lineNumber: 57,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/about/About.tsx",
-                    lineNumber: 39,
+                    lineNumber: 56,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/about/About.tsx",
-            lineNumber: 11,
+            lineNumber: 25,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/about/About.tsx",
-        lineNumber: 10,
+        lineNumber: 19,
         columnNumber: 9
     }, this);
 }
