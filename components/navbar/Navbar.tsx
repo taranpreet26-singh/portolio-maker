@@ -45,7 +45,7 @@ export default function Navbar() {
         {isOpen && (
           <>
             <motion.div
-              className="fixed text-white inset-0 bg-black/50 z-[10000]"
+              className="fixed  inset-0 bg-black/50 z-[10000]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -53,7 +53,7 @@ export default function Navbar() {
             />
 
             <motion.div
-              className="fixed top-0 right-0 w-64 h-full bg-black/90 drop-shadow-xl shadow-lg z-50 flex flex-col p-6"
+              className="fixed top-0 right-0  w-64 h-full bg-black/90 drop-shadow-xl shadow-lg z-50 flex flex-col p-6"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -65,7 +65,7 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <div className="mt-8 flex flex-col gap-6 text-lg  font-medium">
+              <div className="mt-8 flex text-white flex-col gap-6 text-lg  font-medium">
                 {menu_data.map((element) => (
                   <div 
                     key={element.id} 
