@@ -55,9 +55,13 @@ export default function About() {
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}>
                             <p className="text-lg md:text-xl leading-relaxed">
-                                {`Hello! I'm Taranpreet Singh, a Full Stack Developer with a B.Tech in IT, driven by a relentless thirst for learning and a passion for crafting robust, user-centric applications...
-                                My technical expertise spans React, TypeScript, Node.js, Express, and PostgreSQL...
-                                 I am always eager to connect with industry leaders, developers, and creatives who share a commitment to innovation...`}
+                                {`Hello! I'm Taranpreet Singh, a Full Stack Developer, and I have a B.Tech in IT, with a relentless drive for continuous learning and a passion for transforming ideas into robust, user-focused applications. Skilled in both front-end and back-end development, I enjoy diving into the full project lifecycle, from design to deployment, and optimizing user experience at every step.
+
+My technical toolkit includes proficiency in React, TypeScript, Node.js, Express, and PostgreSQL, with experience in the MERN stack. Currently, I’m delving into advanced concepts like Prisma, Zod, and cloud deployment with Neon DB and Render to elevate my development capabilities and stay ahead in this fast-evolving field.
+
+I am eager to connect with industry leaders, developers, and creatives who share a commitment to innovation. Open to collaborative projects, mentorship opportunities, and professional discussions, I aim to contribute to impactful projects and grow within the tech community.
+
+Let’s connect and build something amazing!`}
                             </p>
 
                             <div className="flex flex-col sm:flex-row justify-between items-center mt-12 text-center max-w-5xl mx-auto border-t border-gray-700 pt-8">
