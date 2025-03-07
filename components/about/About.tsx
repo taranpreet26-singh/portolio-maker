@@ -10,7 +10,6 @@ export default function About() {
     ];
     const companyGroup = [...company, ...company, ...company, ...company, ...company];
 
-    // Motion variants for cleaner animation handling
     const fadeInUp = {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } }
@@ -24,7 +23,6 @@ export default function About() {
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 1 } } }}
         >
             <div>
-                {/* Title Section */}
                 <motion.div 
                     className="bg-[#f4f3ed] text-black flex items-center justify-center font-thin font-serif text-xl md:text-2xl"
                     variants={fadeInUp}
@@ -32,7 +30,6 @@ export default function About() {
                     COMPANY I WANT TO WORK WITH
                 </motion.div>
 
-                {/* Scrolling Logo Section */}
                 <div className="flex justify-center mt-10">
                     <div className="overflow-hidden w-[80%] relative">
                         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black via-transparent"></div>
@@ -56,10 +53,8 @@ export default function About() {
                     </div>
                 </div>
 
-                {/* About Section */}
                 <motion.div className="h-auto mt-10 text-white" variants={fadeInUp}>
                     <div className="w-full px-4 sm:px-14 mx-auto flex flex-col items-center md:items-start md:flex-row">
-                        {/* About Me Title */}
                         <motion.div 
                             className="w-[30%]"
                             initial="hidden"
@@ -69,7 +64,6 @@ export default function About() {
                             <h2 className="text-xl sm:text-3xl md:text-5xl font-bold mb-6">About Me</h2>
                         </motion.div>
 
-                        {/* About Me Description */}
                         <motion.div 
                             className="w-[70%] text-justify"
                             initial="hidden"
@@ -86,7 +80,6 @@ I am eager to connect with industry leaders, developers, and creatives who share
 Let’s connect and build something amazing!`}
                             </p>
 
-                            {/* Stats Section */}
                             <div className="flex flex-col sm:flex-row justify-between items-center mt-12 text-center max-w-5xl mx-auto border-t border-gray-700 pt-8">
                                 {[
                                     { label: "Years of Experience", value: "8+" },
