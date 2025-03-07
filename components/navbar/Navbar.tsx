@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import menu_data from "@/utils/menu_data";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,9 +17,9 @@ export default function Navbar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex items-center   justify-between">
           <div>
-            <img src="/images/logo-dark.webp" className="w-12 cursor-pointer" alt="logo" />
+            <Image width={300} height={300} src="/images/logo-dark.png" className="w-12 cursor-pointer" alt="logo" />
           </div>
 
           <div className="hidden md:flex gap-8 text-[1rem] font-thin  tracking-wide">
