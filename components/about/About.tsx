@@ -56,11 +56,7 @@ export default function About() {
                             transition={{ duration: 0.8, ease: "easeOut" }}>
                             <p className="text-lg md:text-xl leading-relaxed">
                                 Hello! I'm Taranpreet Singh, a Full Stack Developer with a B.Tech in IT, driven by a relentless thirst for learning and a passion for crafting robust, user-centric applications...
-                            </p>
-                            <p className="mt-4 text-lg md:text-xl leading-relaxed">
                                 My technical expertise spans React, TypeScript, Node.js, Express, and PostgreSQL...
-                            </p>
-                            <p className="mt-4 text-lg md:text-xl leading-relaxed">
                                 I am always eager to connect with industry leaders, developers, and creatives who share a commitment to innovation...
                             </p>
                             <div className="flex flex-col sm:flex-row justify-between items-center mt-12 text-center max-w-5xl mx-auto border-t border-gray-700 pt-8">
