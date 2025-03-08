@@ -57,7 +57,7 @@ export default function Testimonials() {
             ref={ref}
             initial="hidden"
             animate="visible"
-            className="bg-[#0a0a0a] h-fit px-4 sm:px-8 lg:px-14 pt-20 pb-10 text-white"
+            className="bg-red-200 h-[32rem] px-4 sm:px-8 lg:px-14 pt-20 pb-10 text-white"
         >
             <motion.h2
                 initial={{ opacity: 0, y: -20 }}
