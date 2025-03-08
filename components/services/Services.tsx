@@ -44,7 +44,7 @@ export default function Services() {
                     transition={{ duration: 0.5, ease: easeInOut, delay: 0.3 }}
                     className="text-xl sm:text-3xl md:text-5xl font-bold mb-6"
                 >
-                    Services
+                    SERVICES
                 </motion.div>
 
                 <div className="flex flex-col gap-6 px-12">
@@ -64,16 +64,16 @@ export default function Services() {
                                             initial={{ opacity: 0.5, x: -300 }}
                                             animate={isInView ? { opacity: 1, x: 0 } : {}}
                                             transition={{ duration: 0.5, ease: easeInOut, delay: 0.6 }}
-                                            className="w-full lg:w-[70%] h-full gap-10 lg:gap-0 lg:h-[22rem] flex group flex-col p-10 py-12 rounded-2xl justify-between bg-white/80 drop-shadow-lg"
+                                            className="w-full lg:w-[70%] h-full gap-10  lg:gap-0 lg:h-[22rem] flex group flex-col p-10 py-12 rounded-2xl justify-between bg-white/80 drop-shadow-lg"
                                         >
                                             <div className="border w-fit p-1 group-hover:bg-black duration-1000 ease-in-out group-hover:text-white rounded-md">
                                                 {"0" + service.id}
                                             </div>
                                             <div>
-                                                <div className="text-xl md:text-2xl lg:text-3xl font-extrabold">
+                                                <div className="text-xl md:text-2xl text-black/70 lg:text-3xl font-extrabold">
                                                     {service.title}
                                                 </div>
-                                                <div className="text-xl lg:text-2xl text-black/60">
+                                                <div className="text-xl lg:text-2xl text-black/40">
                                                     {service.info}
                                                 </div>
                                             </div>
@@ -89,10 +89,10 @@ export default function Services() {
                                                 {"0" + services[index + 1].id}
                                             </div>
                                             <div>
-                                                <div className="text-2xl lg:text-3xl font-extrabold">
+                                                <div className="text-2xl lg:text-3xl text-black/70 font-extrabold">
                                                     {services[index + 1].title}
                                                 </div>
-                                                <div className="text-xl lg:text-2xl text-black/60">
+                                                <div className="text-xl lg:text-2xl text-black/40">
                                                     {services[index + 1].info}
                                                 </div>
                                             </div>
@@ -109,10 +109,10 @@ export default function Services() {
                                                 {"0" + service.id}
                                             </div>
                                             <div>
-                                                <div className="text-2xl lg:text-3xl font-extrabold">
+                                                <div className="text-2xl lg:text-3xl text-black/70 font-extrabold">
                                                     {service.title}
                                                 </div>
-                                                <div className="text-xl lg:text-2xl text-black/60">
+                                                <div className="text-xl lg:text-2xl text-black/40">
                                                     {service.info}
                                                 </div>
                                             </div>
@@ -127,10 +127,10 @@ export default function Services() {
                                                 {"0" + services[index + 1].id}
                                             </div>
                                             <div>
-                                                <div className="text-2xl lg:text-3xl font-extrabold">
+                                                <div className="text-2xl lg:text-3xl text-black/70 font-extrabold">
                                                     {services[index + 1].title}
                                                 </div>
-                                                <div className="text-xl lg:text-2xl text-black/60">
+                                                <div className="text-xl lg:text-2xl text-black/40">
                                                     {services[index + 1].info}
                                                 </div>
                                             </div>
