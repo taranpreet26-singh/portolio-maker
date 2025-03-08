@@ -52,6 +52,8 @@ export default function Testimonials() {
     return (
         <motion.div
             ref={ref}
+            initial="hidden"
+            animate="visible"
             className="bg-[#0a0a0a] h-fit px-4 sm:px-8 lg:px-14 pt-20 pb-10 text-white"
         >
             <motion.h2
