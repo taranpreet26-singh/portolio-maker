@@ -1,7 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
 
 const testimonials = [
     {
@@ -42,41 +40,15 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-    const ref = useRef(null);
-    const [isClient, setIsClient] = useState(false);
-    const isInView = useInView(ref, { once: true, margin: "-400px" });
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
-
-    if (!isClient) return null; 
-
     return (
-        <motion.div
-            ref={ref}
-            initial="hidden"
-            animate="visible"
-            className="bg-red-200 h-[32rem] px-4 sm:px-8 lg:px-14 pt-20 pb-10 text-white"
-        >
-            <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
-                className="text-xl sm:text-3xl md:text-5xl font-bold mb-10"
-            >
-                TESTIMONIALS
-            </motion.h2>
+        <div className="bg-red-200 h-fit px-4 sm:px-8 lg:px-14 pt-20 pb-10 text-white">
+            <h2 className="text-xl sm:text-3xl md:text-5xl font-bold mb-10">TESTIMONIALS</h2>
 
             <div className="flex flex-col gap-6">
                 <div className="flex flex-col lg:flex-row gap-6">
                     {testimonials.slice(0, 2).map(({ id, img, message, name, position }) => (
-                        <motion.div
+                        <div
                             key={id}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
                             className="bg-white/90 text-black group drop-shadow-lg flex flex-col p-6 sm:p-8 rounded-xl w-full lg:w-[49%]"
                         >
                             <Image width={300} height={300} src={img} alt="user" className="w-16 rounded-full " />
@@ -85,18 +57,14 @@ export default function Testimonials() {
                                 <p className="text-2xl font-semibold">{name}</p>
                                 <p className="text-lg font-bold text-gray-600/40">{position}</p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-6">
                     {testimonials.slice(2).map(({ id, message, img, name, position }) => (
-                        <motion.div
+                        <div
                             key={id}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
                             className="bg-white/90 text-black group drop-shadow-lg flex flex-col p-6 sm:p-8 rounded-xl w-full lg:w-[32%]"
                         >
                             <Image width={300} height={300} src={img} alt="user" className="w-16 rounded-full " />
@@ -105,10 +73,10 @@ export default function Testimonials() {
                                 <p className="text-2xl font-semibold">{name}</p>
                                 <p className="text-lg font-bold text-gray-600">{position}</p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }
