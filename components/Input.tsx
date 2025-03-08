@@ -1,4 +1,3 @@
-import { User } from "lucide-react";
 
 type InputType ={
     title:string,
