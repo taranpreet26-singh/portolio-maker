@@ -1,8 +1,9 @@
+import { ReactNode } from "react"
 
 type InputType ={
     title:string,
     placeholder:string,
-    icon:any,
+    icon:ReactNode,
 } 
 
 export default function Input({title,placeholder,icon}:InputType){

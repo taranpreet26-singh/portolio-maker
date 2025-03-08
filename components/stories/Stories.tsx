@@ -11,7 +11,7 @@ export default function Stories() {
                     Building stunning, high-performance landing pages that turn visitors into loyal customers.
                 </p>
                 <p className="sm:text-lg  md:text-xl lg:text-2xl text-white/80">
-                    Let's create something amazing!
+                    {"Let's create something amazing!"}
                 </p>
             </div>
         </div>
