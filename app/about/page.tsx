@@ -3,13 +3,13 @@ import Footer from "@/components/footer/Footer";
 import ProfessionalSkills from "@/components/skill/Skill";
 import Stories from "@/components/stories/Stories";
 
-export default function(){
+export default function AboutPage(){
     return <div>
-        <Footer message="" title="About Me"/>
+        <Footer secmess="" message="" title="About Me"/>
         <About/>
         <Stories/>
         <ProfessionalSkills/>
-        <Footer message={'Have a project in mind?'} title={'LETS WORK'}/>
+        <Footer secmess="" message={'Have a project in mind?'} title={'LETS WORK'}/>
         
     </div>
 }

@@ -25,7 +25,7 @@ export default function ProfessionalSkills() {
                     <div 
                         key={index} 
                         className="bg-white/70 shadow-lg rounded-xl flex flex-col  items-center justify-center p-6 h-52 transition hover:scale-105">
-                        {skill.icon || <Image className="w-12 h-12 text-gray-400" />} 
+                        {skill.icon || <Image  className="w-12 h-12 text-gray-400" />} 
                         <p className="text-lg font-semibold text-black mt-2">{skill.name}</p>
                     </div>
                 ))}

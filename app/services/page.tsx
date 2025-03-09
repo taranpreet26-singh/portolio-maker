@@ -1,7 +1,7 @@
 import Footer from "@/components/footer/Footer";
 import Services from "@/components/services/Services";
 
-export default function(){
+export default function ServicePage(){
     return <div>
         <Footer secmess="" message="" title="Services"/>
         <Services/>
