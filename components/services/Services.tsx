@@ -1,6 +1,5 @@
 "use client";
-import { easeInOut, motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { easeInOut, motion } from "framer-motion";
 
 const services = [
     {
@@ -26,18 +25,18 @@ const services = [
 ];
 
 export default function Services() {
-   
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 } }
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: easeInOut }}
             className="bg-[#f4f3ed] text-black px-4 sm:px-14 pt-10 py-16"
         >
             <div>
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 } }
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: easeInOut, delay: 0.3 }}
                     className="text-xl sm:text-3xl md:text-5xl font-bold mb-6"
                 >
@@ -52,7 +51,7 @@ export default function Services() {
                             <motion.div
                                 key={service.id}
                                 initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 } }
+                                animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.6, ease: easeInOut, delay: index * 0.2 }}
                             >
                                 {index % 4 === 0 ? (
@@ -98,10 +97,10 @@ export default function Services() {
                                 ) : (
                                     <div className="flex flex-col lg:flex-row gap-5">
                                         <motion.div
-                                         initial={{ opacity: 0.5, y: 200 }}
-                                         animate={{ opacity: 1, y: 0 }}
-                                         transition={{ duration: 0.5, ease: easeInOut, delay: 0.6 }}
-                                        className="w-full lg:w-[30%] h-full gap-10 lg:gap-0 lg:h-[22rem] flex group flex-col p-10 py-12 rounded-2xl justify-between bg-white/80 drop-shadow-lg">
+                                            initial={{ opacity: 0.5, y: 200 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, ease: easeInOut, delay: 0.6 }}
+                                            className="w-full lg:w-[30%] h-full gap-10 lg:gap-0 lg:h-[22rem] flex group flex-col p-10 py-12 rounded-2xl justify-between bg-white/80 drop-shadow-lg">
                                             <div className="border w-fit p-1 group-hover:bg-black duration-1000 ease-in-out group-hover:text-white rounded-md">
                                                 {"0" + service.id}
                                             </div>
@@ -116,10 +115,10 @@ export default function Services() {
                                         </motion.div>
 
                                         <motion.div
-                                           initial={{ opacity: 0.5, x: 120 }}
-                                           animate={{ opacity: 1, x: 0 } }
-                                           transition={{ duration: 0.5, ease: easeInOut, delay: 0.6 }}
-                                        className="w-full lg:w-[70%] h-full gap-10 lg:gap-0 lg:h-[22rem] flex group flex-col p-10 py-12 rounded-2xl justify-between bg-white/80 drop-shadow-lg">
+                                            initial={{ opacity: 0.5, x: 120 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.5, ease: easeInOut, delay: 0.6 }}
+                                            className="w-full lg:w-[70%] h-full gap-10 lg:gap-0 lg:h-[22rem] flex group flex-col p-10 py-12 rounded-2xl justify-between bg-white/80 drop-shadow-lg">
                                             <div className="border w-fit p-1 group-hover:bg-black duration-1000 ease-in-out group-hover:text-white rounded-md">
                                                 {"0" + services[index + 1].id}
                                             </div>
