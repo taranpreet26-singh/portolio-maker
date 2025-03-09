@@ -18,7 +18,7 @@ export default function Home() {
       <Stories/>
       <Contact/>
       <hr/>
-      <Footer/>
+      <Footer secmess="" message={'Have a project in mind?'} title={'LETS WORK'}/>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function About() {
   const companyGroup = [...company, ...company, ...company];
 
   return (
-    <motion.div className="h-[22rem] pt-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+    <motion.div className="h-fit pt-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
       <div>
         <motion.div
           className="bg-[#f4f3ed] text-black flex items-center justify-center font-thin font-serif text-xl md:text-2xl"

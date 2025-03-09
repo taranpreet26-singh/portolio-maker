@@ -3,9 +3,9 @@
 import Image from "next/image"
 
 export default function Stories() {
-    return <div className="flex relative w-full h-[42rem]">
+    return <div className="flex relative w-full mt-10 h-[42rem] ">
         <Image layout="fill" objectFit="cover" priority alt="img" src={"/images/banner2.png"} className="absolute" />
-        <div className="bg-black/30 absolute w-full h-full flex justify-center items-center ">
+        <div className="bg-black/40 absolute w-full h-full flex justify-center items-center ">
             <div className="px-4  flex flex-col items-center justify-center">
                 <p className="text-xl text-center lg:text-2xl flex flex-wrap text-white/60  ">
                     Building stunning, high-performance landing pages that turn visitors into loyal customers.

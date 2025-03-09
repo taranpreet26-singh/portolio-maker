@@ -41,7 +41,7 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <div className="bg-[#0a0a0a] h-fit px-4 sm:px-8 lg:px-14 pt-20 pb-10 text-white">
+        <div className="bg-[#0a0a0a] h-fit px-4 sm:px-8 lg:px-14 pt-20 pb-10 text-white ">
             <h2 className="text-xl sm:text-3xl md:text-5xl font-bold mb-10">TESTIMONIALS</h2>
 
             <div className="flex flex-col gap-6">
@@ -71,7 +71,7 @@ export default function Testimonials() {
                             <p className="text-lg lg:text-xl mb-4">{message}</p>
                             <div>
                                 <p className="text-2xl font-semibold">{name}</p>
-                                <p className="text-lg font-bold text-gray-600">{position}</p>
+                                <p className="text-lg font-bold text-gray-600/40">{position}</p>
                             </div>
                         </div>
                     ))}

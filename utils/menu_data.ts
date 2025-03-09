@@ -25,17 +25,11 @@ const menu_data: DataType[] = [
 	{
 		id: 3,
 		title: "Services",
-		link: "/service",
+		link: "/services",
 		has_dropdown: false,
 	},
 	{
 		id: 4,
-		title: "Projects",
-		link: "#",
-		has_dropdown: false,
-	},
-	{
-		id: 5,
 		title: "Contact",
 		link: "/contact",
 		has_dropdown: false,
