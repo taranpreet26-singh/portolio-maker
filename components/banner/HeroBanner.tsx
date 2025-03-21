@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function HeroBanner() {
+export default function HeroBanner({name,img,info} : {name?:string,img?:string,info?:string}) {
     return (
         <section className="px-4 sm:px-14 bg-[#f4f3ed] py-16 rounded-b-2xl">
             <motion.div
@@ -19,7 +19,7 @@ export default function HeroBanner() {
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         className="text-3xl pt-6 md:pt-0 sm:text-6xl md:6xl lg:text-9xl  xl:text-[170px] font-extrabold text-gray-900 drop-shadow-lg tracking-wide leading-[1.2]"
                     >
-                        TARANPREET SINGH
+                        { name?.toUpperCase() ||  "TARANPREET SINGH"}
                     </motion.h2>
                 </div>
 
@@ -73,7 +73,7 @@ export default function HeroBanner() {
                             <Image
                                 width={300}
                                 height={300}
-                                src={'/images/pic.jpg'}
+                                src={img || '/images/pic.jpg'}
                                 alt="Profile"
                                 className="w-8/12 sm:w-94 md:w-80 lg:w-96 xl:w-[28rem]  
                                 h-92 sm:h-92 md:h-96 xl:h-[30rem]  
@@ -90,7 +90,7 @@ export default function HeroBanner() {
                             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                             className="text-gray-700 text-lg sm:text-xl leading-relaxed"
                         >
-                            Hi, I’m Taranpreet, a passionate Full Stack Developer dedicated to creating user-friendly, responsive, and engaging websites..
+                            {info || "Hi, I’m Taranpreet, a passionate Full Stack Developer dedicated to creating user-friendly, responsive, and engaging websites.."}
                         </motion.p>
                         <motion.a
                             initial={{ opacity: 0, scale: 0.8 }}

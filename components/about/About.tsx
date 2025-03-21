@@ -2,7 +2,7 @@
 import { easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 
-export default function About() {
+export default function About({about}:{about? : string}) {
     const company = [
         '/images/partner1.png', '/images/clear-logo.png', '/images/partner2.png',
         '/images/partner3.png', '/images/clear-logo.png', '/images/partner4.png',
@@ -71,7 +71,7 @@ export default function About() {
                             variants={fadeInUp}
                         >
                             <p className="text-lg md:text-xl leading-relaxed">
-                                {`Hello! I'm Taranpreet Singh, a Full Stack Developer, and I have a B.Tech in IT, with a relentless drive for continuous learning and a passion for transforming ideas into robust, user-focused applications. Skilled in both front-end and back-end development, I enjoy diving into the full project lifecycle, from design to deployment, and optimizing user experience at every step.
+                                { about || `Hello! I'm Taranpreet Singh, a Full Stack Developer, and I have a B.Tech in IT, with a relentless drive for continuous learning and a passion for transforming ideas into robust, user-focused applications. Skilled in both front-end and back-end development, I enjoy diving into the full project lifecycle, from design to deployment, and optimizing user experience at every step.
 
 My technical toolkit includes proficiency in React, TypeScript, Node.js, Express, and PostgreSQL, with experience in the MERN stack. Currently, I’m delving into advanced concepts like Prisma, Zod, and cloud deployment with Neon DB and Render to elevate my development capabilities and stay ahead in this fast-evolving field.
 
