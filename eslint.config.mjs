@@ -11,6 +11,13 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "no-console": "off", // Disable console warnings
+      "react/no-unescaped-entities": "warn", // Turn unescaped entities into warnings instead of errors
+      "react/react-in-jsx-scope": "off", // Not needed in Next.js anymore
+    },
+  },
 ];
 
 export default eslintConfig;

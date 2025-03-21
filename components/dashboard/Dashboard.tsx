@@ -1,5 +1,5 @@
 "use client";
-import { Calendar1Icon, Image, Mail, PencilIcon, PercentCircleIcon, User2 } from "lucide-react";
+import { Calendar1Icon, ImageIcon, Mail, PencilIcon, PercentCircleIcon, User2 } from "lucide-react";
 import { GoNumber } from "react-icons/go";
 import Input from "../Input";
 import { useEffect, useState } from "react";
@@ -8,6 +8,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useSession } from "next-auth/react";
 import { URL } from "@/utils/menu_data";
+import Image from "next/image";
 
 export default function DashboardField() {
 
@@ -197,7 +198,7 @@ export default function DashboardField() {
                         className="p-3 w-full border rounded-lg text-gray-7 bg-white shadow-md outline-none"
                     />
                     <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-800">
-                        <Image />
+                        <ImageIcon />
                     </div>
                 </div>
             </div>
@@ -210,7 +211,8 @@ export default function DashboardField() {
                     transition={{ duration: 0.5 }}
                 >
                     
-                    <img
+                                       
+                    <Image
                         src={previewImage}
                         alt="Uploaded preview"
                         className="w-full h-[42rem] object-cover rounded-lg shadow-md"

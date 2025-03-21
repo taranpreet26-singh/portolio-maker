@@ -2,7 +2,7 @@
 
 import { FaReact, FaNodeJs, FaAndroid } from "react-icons/fa6";
 import { SiTailwindcss, SiNextdotjs, SiHtml5, SiJavascript, SiPostgresql, SiZod } from "react-icons/si";
-import { Image } from "lucide-react";
+import { ImageIcon } from "lucide-react";
 
 export default function ProfessionalSkills() {
     const skills = [
@@ -25,7 +25,7 @@ export default function ProfessionalSkills() {
                     <div 
                         key={index} 
                         className="bg-white/70 shadow-lg rounded-xl flex flex-col  items-center justify-center p-6 h-52 transition hover:scale-105">
-                        {skill.icon || <Image  className="w-12 h-12 text-gray-400" />} 
+                        {skill.icon || <ImageIcon   className="w-12 h-12 text-gray-400" />} 
                         <p className="text-lg font-semibold text-black mt-2">{skill.name}</p>
                     </div>
                 ))}
