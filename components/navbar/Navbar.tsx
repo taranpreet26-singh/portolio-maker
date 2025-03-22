@@ -6,10 +6,12 @@ import { Menu, X } from "lucide-react";
 import menu_data from "@/utils/menu_data";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const session = useSession();
 
   const handleNavigation = (link: string) => {
     router.push(link);
@@ -25,7 +27,7 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <div className="flex items-center justify-between">
-          <div onClick={() => handleNavigation("/")} className="cursor-pointer">
+          <div onClick={() => handleNavigation(`/user/${session.data?.user.id}`)} className="cursor-pointer">
             <Image
               width={400}
               height={400}
@@ -40,7 +42,7 @@ export default function Navbar() {
               <div
                 key={item.id}
                 className="cursor-pointer transition duration-300 hover:opacity-70"
-                onClick={() => handleNavigation(item.link)}
+                onClick={() => handleNavigation(item.link+`/${session.data?.user.id}`)}
               >
                 {item.title.toUpperCase()}
               </div>

@@ -53,6 +53,6 @@ export default function User(){
               <hr/>
               <Footer secmess="" message={'Have a project in mind?'} title={'LETS WORK'}/>
             
-        
+              
     </div>
 }

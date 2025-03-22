@@ -12,6 +12,7 @@ const prisma = new PrismaClient()
 
 export async function GET(req: NextRequest) {
     try {
+        console.log(req.url)
         const {searchParams} = new URL(req.url)
         console.log(searchParams)
         const userId = searchParams.get('userId[userid]')
