@@ -123,7 +123,7 @@ export default function SignUpCom() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-red-200 w-full h-12 flex items-center justify-center cursor-pointer mt-2 rounded-lg font-medium hover:bg-red-300 transition-all"
-                        onClick={() => router.push('/dashboard')}
+                        onClick={() => router.push('/dashboard/create-portfolio')}
                     >
                         Go to Dashboard
                     </motion.div>

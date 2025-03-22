@@ -79,7 +79,7 @@ const authOptions: NextAuthOptions = {
       return session;
     },
 
-    redirect: async () => "/dashboard",
+    redirect: async () => "/dashboard/create-portfolio",
   },
 };
 
