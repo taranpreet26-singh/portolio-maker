@@ -14,7 +14,7 @@ export default function Home() {
     <div >
       <DemoNav/>
       <HeroBanner />
-      <About />
+      <About project={"10"} client={ "100%"} year={"8+"}/>
       <Services />
       <Testinomials/>
       <Stories/>
