@@ -7,7 +7,7 @@ import Stories from "@/components/stories/Stories"
 import { URL } from "@/utils/menu_data"
 import axios from "axios"
 import { useParams } from "next/navigation"
-import {  useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import Testinomials from "@/components/testinomials/Testinomials";
 import About from "@/components/about/About"
 
@@ -27,7 +27,7 @@ type UserType ={
 export default function User(){
     const userId = useParams()
     const [userInfo,setUserInfo] = useState<UserType | null>(null)
-    const getAllInfo = async()=> {
+    const getAllInfo = useCallback(async () => {
         try {
           const response = await axios.get(`${URL}/api/info`, {
             params: { userId },
@@ -36,7 +36,7 @@ export default function User(){
         } catch (error) {
           console.error("Error fetching user info:", error);
         }
-      };
+      }, [userId]);
     useEffect(()=>{
         if(userId){
             getAllInfo()
@@ -44,7 +44,7 @@ export default function User(){
     },[userId,getAllInfo])
     return <div>
               <HeroBanner name={userInfo?.name ?? `${"Default Portfolio"}`} img={userInfo?.image} info={userInfo?.info} />
-              <About about={userInfo?.about}  project={userInfo?.project} client={userInfo?.client} year={userInfo?.experience}/>
+              <About about={userInfo?.about} project={userInfo?.project} client={userInfo?.client} year={userInfo?.experience}/>
               <Services />
                 <Testinomials/>              
               <Stories/>
