@@ -45,7 +45,7 @@ export default function User(){
     },[userId,getAllInfo])
     return <div>
               <HeroBanner name={userInfo?.name ?? `${"Default Portfolio"}`} img={userInfo?.image} info={userInfo?.info} />
-              <About about={userInfo?.about} project={userInfo?.total_project} client={userInfo?.client_satisification_per} year={userInfo?.experience}/>
+              <About about={userInfo?.about} project={userInfo?.total_project ?? "10"} client={userInfo?.client_satisification_per ?? "100%"} year={userInfo?.experience ?? "8+"}/>
               <Services />
                 <Testinomials/>              
               <Stories/>
@@ -53,6 +53,6 @@ export default function User(){
               <hr/>
               <Footer secmess="" message={'Have a project in mind?'} title={'LETS WORK'}/>
             
-              
+
     </div>
 }
