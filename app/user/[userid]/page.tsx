@@ -7,7 +7,7 @@ import Stories from "@/components/stories/Stories"
 import { URL } from "@/utils/menu_data"
 import axios from "axios"
 import { useParams } from "next/navigation"
-import { useCallback, useEffect, useState } from "react"
+import {  useEffect, useState } from "react"
 import Testinomials from "@/components/testinomials/Testinomials";
 import About from "@/components/about/About"
 
