@@ -18,10 +18,11 @@ export async function GET(req: NextRequest) {
         console.log(userId)
 
         if(userId){
+            console.log('inside')
             const response = await prisma.info.findFirst({
                 where:{userId}
             })
-            console.log(response)
+            console.log(response,"response")
             
             return NextResponse.json({
                 info:response

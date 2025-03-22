@@ -2,7 +2,7 @@
 import { easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 
-export default function About({about}:{about? : string}) {
+export default function About({about,year,client,project}:{about? : string,year?:string,client?:string,project?:string}) {
     const company = [
         '/images/partner1.png', '/images/clear-logo.png', '/images/partner2.png',
         '/images/partner3.png', '/images/clear-logo.png', '/images/partner4.png',
@@ -82,9 +82,9 @@ Let’s connect and build something amazing!`}
 
                             <div className="flex flex-col sm:flex-row justify-between items-center mt-12 text-center max-w-5xl mx-auto border-t border-gray-700 pt-8">
                                 {[
-                                    { label: "Years of Experience", value: "8+" },
-                                    { label: "Completed Projects", value: "1k+" },
-                                    { label: "Client Satisfactions", value: "90%+" }
+                                    { label: "Years of Experience", value: year ||"8+" },
+                                    { label: "Completed Projects", value: project  || "1k+" },
+                                    { label: "Client Satisfactions", value: client || "90%+" }
                                 ].map((stat, index) => (
                                     <motion.div
                                         key={index}
