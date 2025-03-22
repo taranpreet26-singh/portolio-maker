@@ -19,8 +19,8 @@ type UserType ={
   about :string
   experience : string
   image :string
-  project :string
-  client:  string
+  total_project :string
+  client_satisification_per:  string
   userId :string
 }
 
@@ -32,6 +32,7 @@ export default function User(){
           const response = await axios.get(`${URL}/api/info`, {
             params: { userId },
           });
+          console.log(response)
           setUserInfo(response.data.info);
         } catch (error) {
           console.error("Error fetching user info:", error);
@@ -44,7 +45,7 @@ export default function User(){
     },[userId,getAllInfo])
     return <div>
               <HeroBanner name={userInfo?.name ?? `${"Default Portfolio"}`} img={userInfo?.image} info={userInfo?.info} />
-              <About about={userInfo?.about} project={userInfo?.project} client={userInfo?.client} year={userInfo?.experience}/>
+              <About about={userInfo?.about} project={userInfo?.total_project} client={userInfo?.client_satisification_per} year={userInfo?.experience}/>
               <Services />
                 <Testinomials/>              
               <Stories/>
