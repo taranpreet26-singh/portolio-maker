@@ -38,7 +38,8 @@ const menu_data: DataType[] = [
 ];
 
 
-export  const  URL = 'http://localhost:3000' 
+// export  const  URL = 'http://localhost:3000' 
+export  const  URL = 'https://portolio-maker-vekx.vercel.app' 
 
 
 type DemoNavType = {
