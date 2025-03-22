@@ -2,106 +2,124 @@
 import { Calendar1Icon, ImageIcon, Mail, PencilIcon, PercentCircleIcon, User2 } from "lucide-react";
 import { GoNumber } from "react-icons/go";
 import Input from "../Input";
-import { useEffect, useState } from "react";
-import {  motion } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useSession } from "next-auth/react";
 import { URL } from "@/utils/menu_data";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { CgClose } from "react-icons/cg";
+import { useParams } from "next/navigation";
 
-export default function DashboardField() {
 
-    const [name, setName] = useState<string>('')
-    const [email, setEmail] = useState<string>('')
-    const [info, setInfo] = useState<string>('')
-    const [about, setAbout] = useState<string>('')
-    const [experience, setExperience] = useState<string>('')
-    const [project, setProject] = useState<string>('')
-    const [client, setClient] = useState<string>('')
+type UserType = {
+    id: string
+    name: string
+    info: string
+    about: string
+    experience: string
+    image: string
+    total_project: string
+    client_satisification_per: string
+    userId: string
+}
+
+export default function UpdateFolio() {
+    const [name, setName] = useState<string>('loading...')
+    const [info, setInfo] = useState<string>('loading....')
+    const [about, setAbout] = useState<string>('loading...')
+    const [experience, setExperience] = useState<string>('loading...')
+    const [project, setProject] = useState<string>('loading...')
+    const [client, setClient] = useState<string>('loading...')
     const [image, setImage] = useState<File | undefined>()
     const session = useSession()
-    const [deleteValue,setDeleteValue] = useState<string>('')
-    const router = useRouter()
     const [isProcessing, setProcessing] = useState<boolean>(false)
     const [id, setId] = useState<string>('')
-
-    const [isDeleteOpen, setIsOpenDelete] = useState<boolean>(false)
     console.log(id)
-
-
     const [previewImage, setPreviewImage] = useState<string | null>(null);
 
-    async function handleInfoSubmit() {
+    const userId = useParams()
+    const [userInfo, setUserInfo] = useState<UserType | null>(null)
+    console.log(userInfo)
+    const getAllInfo = useCallback(async () => {
         try {
-            if (!name || !email || !info || !about || !experience || !project || !client) {
-                toast.error("All fields are required.");
-                return;
-            }
-            setProcessing(true);
+            const response = await axios.get(`${URL}/api/info`, {
+                params: { userId },
+            });
+            console.log(response)
+            setUserInfo(response.data.info || "");
+            setName(response.data.info.name || "")
+            setInfo(response.data.info.info || "")
+            setAbout(response.data.info.about || "")
+            setExperience(response.data.info.experience || "")
+            setProject(response.data.info.total_project || "")
+            setClient(response.data.info.client_satisification_per || "")
+            const imageFromAPI = response.data.info.image || "/default-placeholder.png";
+        setImage(imageFromAPI);
+        setPreviewImage(imageFromAPI);
 
-            const formData = new FormData()
-            formData.append('name', name)
-            formData.append('email', email)
-            formData.append('info', info)
-            formData.append('about', about)
-            formData.append('experience', experience)
-            formData.append('project', project)
-            formData.append('client', client)
-            formData.append('userId', String(session.data?.user.id))
-            if (image) {
-                formData.append('image', image)
-            }
-
-            const response = await axios.post(`${URL}/api/info`, formData, {
-                headers: {
-                    'Content-Type': "multipart/form-data"
-                }
-            })
-            if (response.data) {
-                console.log(response)
-                toast.success(response.data.msg)
-                setId(response.data.id)
-            }
         } catch (error) {
-            toast.error('Submission Error')
-            console.log(error)
-        } finally {
-            setProcessing(false)
+            console.error("Error fetching user info:", error);
         }
-    }
+    }, [userId]);
     useEffect(() => {
-        console.log(previewImage, "priveimage")
-    }, [image, previewImage])
+        if (userId) {
+            getAllInfo()
+        }
+    }, [userId, getAllInfo])
+
+
+       async function handleInfoSubmit() {
+            try {
+                if (!name ||  !info || !about || !experience || !project || !client) {
+                    toast.error("All fields are required.");
+                    return;
+                }
+                setProcessing(true);
+    
+                const formData = new FormData()
+                formData.append('name', name)
+                formData.append('email', session.data?.user.email || "")
+                formData.append('info', info)
+                formData.append('about', about)
+                formData.append('experience', experience)
+                formData.append('project', project)
+                formData.append('client', client)
+                formData.append('userId', String(session.data?.user.id))
+                if (image) {
+                    formData.append('image', image)
+                }
+    
+                const response = await axios.put(`${URL}/api/info`, formData, {
+                    headers: {
+                        'Content-Type': "multipart/form-data"
+                    }
+                })
+                if (response.data) {
+                    console.log(response)
+                    toast.success(response.data.msg)
+                    setId(response.data.id)
+                }
+            } catch (error) {
+                toast.error('Submission Error')
+                console.log(error)
+            } finally {
+                setProcessing(false)
+            }
+        }
+        useEffect(() => {
+    
+        }, [image])
 
     const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setImage(e.target.files?.[0])
         const file = e.target.files?.[0];
         if (file) {
-            console.log(image)
-            setImage(e.target.files?.[0])
             const reader = new FileReader();
             reader.onloadend = () => setPreviewImage(reader.result as string);
             reader.readAsDataURL(file);
-            console.log("Preview Image:", reader.result); // This will show the base64 string properly now.
-
         }
     };
-
-
-    async function handleDelete() {
-       try {
-        console.log('inside delete')
-         const response =  await axios.delete(`${URL}/api/info`,{
-             params:{"userId" : String(session.data?.user.id)}
-         })
-         toast.success(response.data.msg)
-       } catch (error) {
-        console.log(error)
-        toast.error('Submission Error')
-       }
-    }
 
     return (
         <motion.div
@@ -111,6 +129,7 @@ export default function DashboardField() {
             transition={{ duration: 0.6, ease: "easeOut" }}
         >
 
+            
             <motion.div
                 className="grid grid-cols-1 md:grid-cols-2  gap-6"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -134,9 +153,9 @@ export default function DashboardField() {
                         placeholder="example@mail.com"
                         icon={<Mail />}
                         name="email"
-                        value={email}
-                        onChange={(e) => {
-                            setEmail(e.target.value)
+                        value={session.data?.user.email || ""}
+                        onChange={()=>{
+                            toast.error("You can't change email")
                         }}
                     />
 
@@ -250,75 +269,8 @@ export default function DashboardField() {
                 onClick={handleInfoSubmit}
                 className="mt-6 w-full p-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-red-500/70 transition"
             >
-                {(!isProcessing) ? "Create" : "Making..."}
+                {(!isProcessing) ? "Update" : "Making..."}
             </motion.button>
-
-
-
-            <div className="flex gap-4 mt-4">
-                <motion.button
-                    whileHover={{ scale: 1.05, backgroundColor: "green" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full p-3 bg-black text-white font-semibold rounded-lg shadow-md transition"
-                    onClick={() => router.push(`/dashboard/update-portfolio/${session.data?.user.id}`)}
-                >
-                    Update
-                </motion.button>
-
-                <motion.button
-                    whileHover={{ scale: 1.05, backgroundColor: "red" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full p-3 bg-black text-white font-semibold rounded-lg shadow-md transition"
-                    onClick={() => setIsOpenDelete(true)}
-                >
-                    Delete
-                </motion.button>
-            </div>
-
-            {isDeleteOpen &&
-                <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0, opacity: 0 }} // For closing animation
-                    transition={{ duration: 1.2, ease: "easeInOut", delay: 0.8 }}
-                    
-
-                    className="bg-black/80 absolute top-0 left-0 rounded-b-2xl border-b-4 drop-shadow-2xl  w-full h-screen flex items-center justify-center overflow-hidden">
-                    <div className="absolute top-5 right-6" onClick={() => {
-                        setIsOpenDelete(false)
-                    }}>
-                        <CgClose style={{ width: 30, height: 30 }} />
-                    </div>
-                    <div className="w-[22rem] h-48 bg-white p-6 rounded-lg shadow-lg flex flex-col items-center justify-center gap-4">
-                        <label className="text-red-500 font-bold text-lg uppercase">
-                            Delete My Portfolio
-                        </label>
-
-                        <input
-                            type="text"
-                            value={deleteValue}
-                            onChange={(e)=>{
-                                setDeleteValue(e.target.value)
-                               
-                            }}
-                            placeholder="Type 'delete my portfolio' to confirm"
-                            className="p-2 w-full border border-gray-300 rounded-md text-black outline-none"
-                        />
-
-                        <button
-                            className={`w-full p-2 mt-2 bg-red-500 text-white font-semibold rounded-md shadow-md ${
-                                deleteValue.toLowerCase() === 'delete my portfolio'?
-                                "bg-red-500 hover:bg-red-600 cursor-pointer":"bg-gray-500 cursor-not-allowed"
-                            }`}
-                            disabled={deleteValue.toLowerCase() !== 'delete my portfolio'}
-                            onClick={handleDelete}
-                        >
-                            Confirm Delete
-                        </button>
-                    </div>
-                </motion.div>
-            }
-
             <Toaster position="bottom-center" />
         </motion.div>
     );

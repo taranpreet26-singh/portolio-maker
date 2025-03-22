@@ -13,24 +13,24 @@ const prisma = new PrismaClient()
 export async function GET(req: NextRequest) {
     try {
         console.log(req.url)
-        const {searchParams} = new URL(req.url)
+        const { searchParams } = new URL(req.url)
         console.log(searchParams)
         const userId = searchParams.get('userId[userid]')
         console.log(userId)
 
-        if(userId){
+        if (userId) {
             console.log('inside')
             const response = await prisma.info.findFirst({
-                where:{userId}
+                where: { userId }
             })
-            console.log(response,"response")
-            
+            console.log(response, "response")
+
             return NextResponse.json({
-                info:response
+                info: response
             })
         }
         return NextResponse.json({
-            msg:"Fetching Error"
+            msg: "Fetching Error"
         })
 
     } catch (error) {
@@ -52,22 +52,22 @@ export async function POST(req: NextRequest) {
         const project = form.get('project') as string
         const client = form.get('client') as string
         const userId = form.get('userId') as string
-        const file = form.get('image') as File | string 
+        const file = form.get('image') as File | string
 
-        console.log(name,email,info,about,experience,project,client)
+        console.log(name, email, info, about, experience, project, client)
 
         const alreadyCreated = await prisma.info.findFirst({
-            where:{
+            where: {
                 userId
             },
-            select:{
-                id:true
+            select: {
+                id: true
             }
         })
 
-        if(alreadyCreated?.id){
+        if (alreadyCreated?.id) {
             return NextResponse.json({
-                msg:"You Already Created , If you want to change content then Update it."
+                msg: "You Already Created , If you want to change content then Update it."
             })
         }
         if (!file || !(file instanceof Blob)) {
@@ -85,34 +85,34 @@ export async function POST(req: NextRequest) {
         console.log("Cloudinary upload result: ", uploadResult.secure_url);
 
 
-        if(userId !== null){
+        if (userId !== null) {
             const response = await prisma.info.create({
-                data:{
+                data: {
                     userId,
-                    client_satisification_per:client,
+                    client_satisification_per: client,
                     about,
                     info,
-                    image:uploadResult.secure_url,
+                    image: uploadResult.secure_url,
                     experience,
-                    total_project:project,
+                    total_project: project,
                     name
                 },
-                select:{
-                    id:true,
-                    userId:true
+                select: {
+                    id: true,
+                    userId: true
                 }
             })
 
-            if(response.id){
+            if (response.id) {
                 return NextResponse.json({
-                    msg:"Portfolio is created Successfully"
+                    msg: "Portfolio is created Successfully"
                 })
             }
             return NextResponse.json({
-                msg:'Error Occur'
+                msg: 'Error Occur'
             })
-        } 
-        
+        }
+
         return NextResponse.json({
             msg: "File uploaded successfully",
             imageUrl: uploadResult.secure_url,
@@ -125,4 +125,130 @@ export async function POST(req: NextRequest) {
             msg: "Unexpected Error"
         })
     }
+}
+
+
+export async function DELETE(req: NextRequest) {
+    try {
+
+        const {searchParams} = new URL(req.url)
+        console.log(searchParams)
+        const userId = searchParams.get('userId')
+        console.log(userId,"userid")
+
+        if(userId){
+            const response = await prisma.info.findFirst({
+                where:{userId},
+                select:{name:true}
+            })
+            if(!response?.name){
+                return NextResponse.json({
+                    msg:"Firstly Create You're Portfolio Then Delete It.."
+                })
+            }
+        }
+
+        if(userId){
+            const response = await prisma.info.delete({
+                where:{
+                    userId
+                },
+                select:{
+                    name:true
+                }
+            })
+            if(response.name){
+
+                return NextResponse.json({
+                    msg:"You're Portfolio is Deleted Successfully"
+                })
+            }
+            return NextResponse.json({
+                msg:"Delete Issue Occur"
+            })
+        }
+        return NextResponse.json({
+            msg:"Try Again later"
+        })
+        
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({
+            msg: "Unexpected Error"
+        })
+    }
+}
+
+
+
+export async function PUT(req: NextRequest) {
+    try {
+        const form = await req.formData()
+        const name = form.get('name') as string
+        const email = form.get('email') as string
+        const info = form.get('info') as string
+        const about = form.get('about') as string
+        const experience = form.get('experience') as string
+        const project = form.get('project') as string
+        const client = form.get('client') as string
+        const userId = form.get('userId') as string
+        const file = form.get('image') as File | string
+
+
+        console.log(name, email, info, about, file)
+        let imageUrl = ""
+
+        if (file && file instanceof Blob) {
+            const arrayBuffer = await file.arrayBuffer()
+            const buffer = Buffer.from(arrayBuffer)
+            const uploadResult = await cloudinary.v2.uploader.upload(
+                `data:${file.type};base64,${buffer.toString("base64")}`,
+                {
+                    folder: 'user_image',
+                    resource_type: "auto"
+                }
+            )
+            imageUrl = uploadResult.secure_url
+            console.log("Cloudinary upload result: ", uploadResult.secure_url);
+        } else if (typeof file === 'string') {
+            imageUrl = file
+        }
+
+        const response  = await prisma.info.update({
+            where: {
+                userId
+            },
+            data: {
+                name,
+                info,
+                about,
+                experience,
+                total_project: project,
+                client_satisification_per: client,
+                image: imageUrl,
+            }
+            ,
+            select:{
+                name:true
+            }
+        })
+        
+        if(response.name){
+            return NextResponse.json({
+                msg: "You're Portfolio is Updated"
+            })
+        }
+
+        return NextResponse.json({
+            msg:"Submission Issue Occur"
+        })
+
+
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({
+            msg: "Unexpected Error"
+        })
+    }
+
 }

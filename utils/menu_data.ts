@@ -58,7 +58,7 @@ export const menu_data_demo: DemoNavType[] = [
 	{
 		id: 2,
 		title: "Dashboard",
-		link: "/dashboard",
+		link: "/dashboard/create-portfolio",
 		has_dropdown: false,
 	},
 	
